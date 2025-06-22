@@ -1,0 +1,180 @@
+/*Global Property*/
+
+:root {
+  --white-color: #f0f0f0;
+  --black-color: #0a0a0a;
+  --light-blue-color: #3a6ea5;
+  --dark-blue-color: #1D3557;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+html {
+  font-size: 62.5%;
+  color: var(--white-color);
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-blue-color);
+  min-height: 100vh;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  max-width: 300px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 3rem 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.palindrome-container {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  padding: 2rem;
+  border-radius: 15px;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  gap: 2.2rem;
+  margin-bottom: 3rem;
+  box-shadow: -4px 0px 5px #0a1320, 4px 0px 5px #0a1320, 0px 8px 5px #0a1320;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+label {
+  text-align: center;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid var(--black-color);
+  background-color: var(--white-color);
+  padding: 0.7rem;
+  font-size: 2rem;
+  width: 100%;
+  max-width: 250px;
+}
+
+button {
+  background-color: var(--light-blue-color);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  border: none;
+  transition: background-color 0.15s ease-in;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--dark-blue-color);
+}
+
+button:active {
+  background-color: var(--light-blue-color);
+}
+
+.result-text {
+  display: none;
+  text-align: center;
+}
+
+.info-container {
+  background-color: var(--light-blue-color);
+  padding: 2rem;
+  border-radius: 15px;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+}
+
+.info-container p {
+  text-align: center;
+}
+
+.lightbulb {
+  display: block;
+}
+
+/*Wider width properties*/
+
+@media only screen and (min-width: 520px) {
+  .page {
+    max-width: 600px;
+  }
+
+  .palindrome-container, .info-container {
+    max-width: 500px;
+  }
+
+  h1 {
+    font-size: 3.8rem;
+  }
+
+  .palindrome-container {
+    font-size: 2.2rem;
+  }
+
+  button {
+    font-size: 1.7rem;
+  }
+
+  .info-container{
+    font-size: 2.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+

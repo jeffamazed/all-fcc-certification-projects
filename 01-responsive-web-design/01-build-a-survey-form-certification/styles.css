@@ -1,0 +1,119 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+  background-color: rgb(210, 180, 140);
+  color: rgb(0, 0, 0);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+}
+
+h1{
+  margin: 1em auto 0 auto;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  text-align: center;
+  margin-top: 0;
+  font-style: italic;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  width: 65vw;
+  max-width: 650px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 0.5em 1.4em 1.4em 1.4em;
+  background-color: rgb(211, 195, 179);
+  border-radius: 5px;
+}
+
+label, select {
+  display: block;
+}
+
+.margin-top {
+  margin-top: 1em;
+}
+
+.inline2.margin-top {
+  margin-top: 1.3em;
+  display: inline-block;
+}
+
+.second-label {
+  margin-left: 0.6em;
+}
+
+input, textarea, select {
+  width: 100%;
+  min-height: 1.7em;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+  padding-left: 0.5em;
+}
+
+textarea {
+  height: 100px;
+}
+
+select {
+  padding-left: 10px;
+}
+
+input, textarea {
+  background-color: rgb(245, 230, 210);
+  border: 1px solid rgb(180, 160, 130);
+  color: rgb(60, 50, 30);
+}
+
+.inline {
+  width: unset;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5em 0.15em 0;
+}
+
+.second-label {
+  font-size: 0.9rem;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-left: 0.2em;
+}
+
+input::placeholder, textarea::placeholder {
+  font-size: 1em;
+  transform: translateY(0.5px);
+}
+
+input[type="submit"] {
+  width: 100%;
+  display: block;
+  height: 2em;
+  font-size: 1.3rem;
+  min-width: 300px;
+  background-color: rgb(150, 75, 0);
+  color: white;
+  margin: 1.4em auto 0.5em auto;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(120, 50, 0); /* Darker brown */
+  cursor: pointer; 
+}
+
+
+
+
+
+
+
+
+

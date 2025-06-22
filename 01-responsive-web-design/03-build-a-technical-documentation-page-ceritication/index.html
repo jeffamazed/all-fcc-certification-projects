@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>HTML Documentation</title>
+  </head>
+  <body>
+    <main id="main-doc">
+      <nav id="navbar">
+        <header>
+          <h1>HTML Documentation</h1>
+        </header>
+        <ul>
+          <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+          <li><a href="#What_You_Should_Already_Know" class="nav-link">What You Should Already Know</a></li>
+          <li><a href="#HTML_Elements" class="nav-link">HTML Elements</a></li>
+          <li><a href="#HTML_Attributes" class="nav-link">HTML Attributes</a></li>
+          <li><a href="#HTML_Core_Structure" class="nav-link">HTML Core Structure</a></li>
+          <li><a href="#Hello_World" class="nav-link">Hello World</a></li>
+          <li><a href="#Heading_Element" class="nav-link">Heading Element</a></li>
+          <li><a href="#Paragraph_Element" class="nav-link">Paragraph Element</a></li>
+          <li><a href="#Anchor_Element" class="nav-link">Anchor Element</a></li>
+          <li><a href="#Title_Element" class="nav-link">Title Element</a></li> 
+          <li><a href="#Image_Element" class="nav-link">Image Element</a></li>
+          <li><a href="#List_Element" class="nav-link">List Element</a></li>
+          <li><a href="#Div_Element" class="nav-link">Div Element</a></li>
+          <li><a href="#Span_Element" class="nav-link">Span Element</a></li>
+          <li><a href="#Table_Element" class="nav-link">Table Element</a></li>
+          <li><a href="#Form_Element" class="nav-link">Form Element</a></li>
+          <li><a href="#Section_Element" class="nav-link">Section Element</a></li>
+          <li><a href="#Article_Element" class="nav-link">Article Element</a></li>
+          <li><a href="#Id_Attribute" class="nav-link">Id Attribute</a></li>
+          <li><a href="#Class_Attribute" class="nav-link">Class Attribute</a></li>
+          <li><a href="#Href_Attribute" class="nav-link">Href Attribute</a></li>
+          <li><a href="#Src_Attribute" class="nav-link">Src Attribute</a></li>
+          <li><a href="#Alt_Attribute" class="nav-link">Alt Attribute</a></li>
+          <li><a href="#Title_Attribute" class="nav-link">Title Attribute</a></li>
+          <li><a href="#Style_Attribute" class="nav-link">Style Attribute</a></li>
+          <li><a href="#Target_Attribute" class="nav-link">Target Attribute</a></li>
+          <li><a href="#Placeholder_Attribute" class="nav-link">Placeholder Attribute</a></li>
+          <li><a href="#Value_Attribute" class="nav-link">Value Attribute</a></li>
+          <li><a href="#Name_Attribute" class="nav-link">Name Attribute</a></li>
+          <li><a href="#Comment" class="nav-link">Comment</a></li>
+          <li><a href="#Reference" class="nav-link">Reference</a></li>
+        </ul>
+      </nav>
+      <div id="content" class="main-content">
+        <section id="Introduction" class="main-section" aria-labelledby="intro-heading">
+          <header>
+            <h2 id="intro-heading">Introduction</h2>
+          </header>
+          <p>HTML (HyperText Markup Language) is the core language used to structure content on the web. It defines how elements like text, images, and links appear on a webpage. While HTML provides structure, CSS is used for styling, and JavaScript adds interactivity.</p>
+          <p>"Hypertext" refers to the links that connect web pages, making navigation possible. HTML uses "markup" to organize content with elements such as <code class="code-container">&lt;head&gt;</code>, <code class="code-container">&lt;title&gt;</code>, <code class="code-container">&lt;body&gt;</code>, <code class="code-container">&lt;p&gt;</code>, <code class="code-container">&lt;img&gt;</code>, and many more, which the browser interprets to display the content.</p>
+          <p>HTML tags, written inside <code class="code-container">&lt; &gt;</code>, are case-insensitive but are generally written in lowercase for consistency.</p>
+        </section>
+        <section id="What_You_Should_Already_Know" class="main-section" aria-labelledby="what-you-should-already-know-heading">
+          <header>
+            <h2 id="what-you-should-already-know-heading">What You Should Already Know</h2>
+          </header>
+          <p>Before diving into HTML, it's helpful to have some basic knowledge of the following:</p>
+          <ul>
+            <li><span class="strong">How the Internet Works</span>: Understanding the basics of how web browsers and servers communicate will make it easier to grasp HTML's role.</li>
+            <li><span class="strong">Basic Text Editing Skills</span>: Knowing how to create and save HTML files using a text editor is essential.</li>
+            <li><span class="strong">Navigating a Web Browser</span>: Being familiar with how to open and browse web pages will help you test and see your HTML in action.</li>
+          </ul>
+        </section>
+        <section id="HTML_Elements" class="main-section" aria-labelledby="html-elements-heading">
+          <header>
+            <h2 id="html-elements-heading">HTML Elements</h2>
+          </header>
+          <p>In HTML, an element consists of:</p>
+          <ol>
+            <li><span class="strong">Opening Tag</span>: This marks the beginning of the element, such as <code class="code-container">&lt;h1&gt;</code>.</li>
+            <li><span class="strong">Content</span>: The information or text inside the element, like "Welcome to My Page."</li>
+            <li><span class="strong">Closing Tag</span>: This marks the end of the element, such as <code class="code-container">&lt;/h1&gt;</code>.</li>
+          </ol>
+          <pre>
+            <code>
+    &lt;h1&gt;Welcome to My Page&lt;/h1&gt;
+            </code>
+          </pre>
+          <p>In this example:</p>
+          <ul>
+            <li><code class="code-container">&lt;h1&gt;</code> is the opening tag.</li>
+            <li>"Welcome to My Page" is the content.</li>
+            <li><code class="code-container">&lt;/h1&gt;</code> is the closing tag.</li>
+          </ul>
+          <p>The structure follows the pattern: &lt;tag&gt; content &lt;/tag&gt;.</p>
+          <p>Some elements may not require a closing tag (like the <code class="code-container">&lt;img&gt;</code> element), but most elements follow this basic structure.</p>
+        </section>
+        <section id="HTML_Attributes" class="main-section" aria-labelledby="html-attributes-heading">
+          <header>
+            <h2 id="html-attributes-heading">HTML Attributes</h2>
+          </header>
+          <p>HTML attributes provide additional information about an element and are placed within the opening tag. They are used to configure or modify the behavior or appearance of HTML elements. Attributes consist of a name and a value, and they help define properties such as the source of an image or the link destination of a hyperlink.</p>
+          <pre>
+            <code>
+    &lt;a href=&quot;https://www.example.com&quot;&gt;Visit Example&lt;/a&gt;
+            </code>
+          </pre>
+          <p>In this example, the <code class="code-container">href</code> attribute specifies the URL (https://www.example.com) the link points to.</p>
+        </section>
+        <section id="HTML_Core_Structure" class="main-section" aria-labelledby="html-core-structure-heading">
+          <header>
+            <h2 id="html-core-structure-heading">HTML Core Structure</h2>
+          </header>
+          <p>The core structure of an HTML document consists of several key elements that define the content and structure of a webpage. At the top, we have the <code class="code-container">&lt;!DOCTYPE html&gt;</code> declaration, which defines the document type as HTML5. The root element is <code class="code-container">&lt;html&gt;</code>, which contains the entire document, and is typically assigned a "lang" attribute to specify the language of the content. Inside the <code class="code-container">&lt;html&gt;</code> element, the <code class="code-container">&lt;head&gt;</code> section contains metadata, links to stylesheets, and scripts, including the <code class="code-container">&lt;meta&gt;</code> tags for character encoding and viewport settings. The <code class="code-container">&lt;body&gt;</code> section holds the visible content of the page, such as headings, paragraphs, images, links, and other elements that users interact with. This basic structure provides the foundation for any webpage, and additional sections can be added depending on content's needs, like navigation, forms, and multimedia.</p>
+        </section>
+        <section id="Hello_World" class="main-section" aria-labelledby="hello-world-heading">
+          <header>
+            <h2 id="hello-world-heading">Hello World</h2>
+          </header>
+          <p>HTML (Hypertext Markup Language) serves as the core structure of web pages. One of the fundamental elements in HTML is headings. With headings, we can easily display "Hello World!" on a webpage like this:</p>
+          <pre>
+            <code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+      &lt;head&gt;
+        &lt;title>Hello World Page&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;Hello World!&lt;/h1&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+            </code>
+          </pre>
+          <p>Notice that we use indentation using "Tab" on the keyboard to tell that an element is within another element. This section <code class="code-container">&lt;h1&gt;Hello World&lt;/h1&gt;</code> guarantees that when you save the code as a text file named index.html and open it in your browser, the text "Hello World!" will be displayed.</p>
+          <div class="frame">
+            <img src="https://i.imgur.com/WuFNLdN.png" alt="Hello World">
+          </div>
+        </section>
+        <section id="Heading_Element" class="main-section" aria-labelledby="heading-element-heading">
+          <header>
+            <h2 id="heading-element-heading">Heading Element</h2>
+          </header>
+          <p>Headings in HTML range from <code class="code-container">&lt;h1&gt;</code> to <code class="code-container">&lt;h6&gt;</code>, and they are used to define the structure and importance of content on a webpage.
+          <ul>
+            <li><code class="code-container">&lt;h1&gt;</code>: Represents the most important heading and is typically used for the main title or key content of the page.</li>
+            <li><code class="code-container">&lt;h2&gt;</code>: Used for subheadings, representing sections under the main title.</li>
+            <li><code class="code-container">&lt;h3&gt;</code>: Represents subsections under <code class="code-container">&lt;h2&gt;</code>, and so on for deeper content hierarchy.</li>
+            <li><code class="code-container">&lt;h4&gt;</code> to <code class="code-container">&lt;h6&gt;</code>: These are used for further subdivisions and lesser importance, with <code class="code-container">&lt;h6&gt;</code> being the least important.</li>
+          </ul>
+          <p>We can write it like this:</p>
+          <pre>
+            <code>
+    &lt;h1&gt;I'm the Most Important Thing Here!&lt;/h1&gt;
+    &lt;h2&gt;Second in Line, Still Pretty Important&lt;/h2&gt;
+    &lt;h3&gt;Not As Big, But Still Noteworthy&lt;/h3&gt;
+    &lt;h4&gt;Getting a Little Less Important&lt;/h4&gt;
+    &lt;h5&gt;Kind of a Side Note&lt;/h5&gt;
+    &lt;h6&gt;Just a Tiny Detail&lt;/h6&gt;
+            </code>
+          </pre>
+          <p>Headings provide a semantic structure to the content, helping with both readability and accessibility. It's essential to use them in order, starting with <code class="code-container">&lt;h1&gt;</code> and proceeding through to <code class="code-container">&lt;h6&gt;</code>.</p>
+        </section>
+        <section id="Paragraph_Element" class="main-section" aria-labelledby="paragraph-element-heading">
+          <header>
+            <h2 id="paragraph-element-heading">Paragraph Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;p&gt;</code> HTML element represents a paragraph of text, typically displayed as a block separated by vertical space or indentation from adjacent blocks. Browsers automatically add space before and after paragraphs to enhance readability.</p>
+          <pre>
+            <code>
+    &lt;p&gt;This is the first paragraph of text.&lt;/p&gt;
+    &lt;p&gt;This is the second paragraph.&lt;/p&gt;
+            </code>
+          </pre>
+          <p>To adjust the spacing or appearance of paragraphs, it's recommended to use CSS. For instance, to increase the space between paragraphs and improve line spacing.</p>
+          <p>It's important to note that using empty <code class="code-container">&lt;p&gt;</code> elements to create space between paragraphs is discouraged, as this can cause issues for users relying on assistive technologies. Instead, CSS should be used to manage spacing and layout.</p>
+        </section>
+        <section id="Anchor_Element" class="main-section" aria-labelledby="anchor-element-heading">
+          <header>
+            <h2 id="anchor-element-heading">Anchor Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;a&gt;</code> (anchor) element in HTML is used to create hyperlinks, allowing users to navigate to other web pages or locations within the same page. It requires the href attribute to specify the destination.</p>
+          <pre>
+            <code>
+    &lt;a href="https://www.google.com/"&gt;Google&lt;/a&gt;
+            </code>
+          </pre>
+          <p>This creates a link that takes the user to <code class="code-container">google.com</code> when clicked.</p>
+          <p>To open a link in a new tab, use the <code class="code-container">target="_blank"</code> attribute:
+          <pre>
+            <code>
+    &lt;a href="https://www.google.com/" target="_blank"&gt;Google&lt;/a&gt;
+            </code>
+          </pre>
+          <p>For linking to a section on the same page:</p>
+          <pre>
+            <code>
+    &lt;a href="#section1">Go to Section 1&lt;/a&gt;
+    &lt;p id="section1"&gt;This is Section 1.&lt;/p&gt;           
+            </code>
+          </pre>  
+          <p>In this case we also use an id attribute, which we'll touch on later.</p>
+        </section>
+        <section id="Title_Element" class="main-section" aria-labelledby="title-element-heading">
+          <header>
+            <h2 id="title-element-heading">Title Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;title&gt;</code> element defines the document's title, displayed in the browser's title bar or tab. It should be <span class="strong">concise</span>, <span class="strong">descriptive</span>, and <span class="strong">unique</span> for each page, aiding in search engine optimization (SEO) and user navigation. The <code class="code-container">&lt;title&gt;</code> element must be placed within the <code class="code-container">&lt;head&gt;</code> section of the HTML document.</p>
+          <pre>
+            <code>
+    &lt;head&gt;
+      &lt;title&gt;Introduction to HTML&lt;/title&gt;
+    &lt;/head&gt;
+            </code>
+          </pre>
+        </section>
+        <section id="Image_Element" class="main-section" aria-labelledby="image-element-heading">
+          <header>
+            <h2 id="image-element-heading">Image Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;img&gt;</code> element embeds images in an HTML page. It requires the <code class="code-container">src</code> attribute for the image URL and the <code class="code-container">alt</code> attribute for accessibility.</p>
+          <pre>
+            <code>
+    &lt;img src=&quot;https://example.com/image.jpg&quot; alt=&quot;Description of image&quot;&gt;
+            </code>
+          </pre>
+          <p>To control the size, use the <code class="code-container">width</code> and <code class="code-container">height</code> attributes:</p>
+          <pre>
+            <code>
+    &lt;img src=&quot;image.jpg&quot; alt=&quot;Example image&quot; width=&quot;200&quot; height=&quot;150&quot;&gt;
+            </code>
+          </pre>
+          <p>Use CSS for better styling and responsiveness.</p>
+        </section>
+        <section id="List_Element" class="main-section" aria-labelledby="list-element-heading">
+          <header>
+            <h2 id="list-element-heading">List Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;ul&gt;</code>, <code class="code-container">&lt;ol&gt;</code>, <code class="code-container">&lt;dl&gt;</code> and <code class="code-container">&lt;li&gt;</code> elements create lists in HTML. The <code class="code-container">&lt;li&gt;</code> is used as the content of the list.</p>
+          <p>Unordered list (<code class="code-container">&lt;ul&gt;</code>) displays items with bullet points:</p>
+          <pre>
+            <code>
+    &lt;ul&gt;
+      &lt;li&gt;Apple&lt;/li&gt;
+      &lt;li&gt;Banana&lt;/li&gt;
+      &lt;li&gt;Orange&lt;/li&gt;
+    &lt;/ul&gt;
+            </code>
+          </pre>
+          <p>Ordered list (<code class="code-container">&lt;ol&gt;</code>) displays items with numbers:</p>
+          <pre>
+            <code>
+    &lt;ol&gt;
+      &lt;li&gt;First Step&lt;/li&gt;
+      &lt;li&gt;Second Step&lt;/li&gt;
+      &lt;li&gt;Third Step&lt;/li&gt;
+    &lt;/ol&gt;  
+            </code>
+          </pre>
+          <p>Description list (<code class="code-container">&lt;dl&gt;</code>) defines terms and descriptions using <code class="code-container">&lt;dt&gt;</code> and <code class="code-container">&lt;dd&gt;</code> respectively:</p>
+          <pre>
+            <code>
+    &lt;dl&gt;
+      &lt;dt&gt;HTML&lt;/dt&gt;
+      &lt;dd&gt;A markup language for web pages.&lt;/dd&gt;
+    &lt;/dl&gt;
+            </code>
+          </pre>
+          <p>Lists help organize content clearly.</p>
+        </section>
+        <section id="Div_Element" class="main-section" aria-labelledby="div-element-heading">
+          <header>
+            <h2 id="div-element-heading">Div Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;div&gt;</code> (division) element is a generic container for grouping and styling content in HTML. It has no inherent semantic meaning and doesn't affect content or layout until styled with CSS or manipulated with JavaScript.</p>
+          <pre>
+            <code>
+    &lt;div class="note"&gt;
+      &lt;p&gt;This is a note.&lt;/p&gt;
+    &lt;/div&gt;
+            </code>
+          </pre>
+          <p>The <code class="code-container">&lt;div&gt;</code> element is commonly used with CSS and JavaScript for layout and interactivity.</p>
+        </section>
+        <section id="Span_Element" class="main-section" aria-labelledby="span-element-heading">
+          <header>
+            <h2 id="span-element-heading">Span Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;span&gt;</code> element is an inline container used for styling a part of text or grouping inline elements without adding extra meaning. It does not affect the layout on its own.</p>
+          <pre>
+            <code>
+    &lt;p&gt;This is a &lt;span class="highlight"&gt;highlighted&lt;/span&gt; word.&lt;/p&gt;
+            </code>
+          </pre>
+          <p>We can then style it using CSS.</p>
+          <p>The <code class="code-container">&lt;span&gt;</code> element is useful for applying styles or scripting to small text portions without affecting the document's structure.</p>
+        </section>
+        <section id="Table_Element" class="main-section" aria-labelledby="table-element-heading">
+          <header>
+            <h2 id="table-element-heading">Table Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;table&gt;</code> element is used to create tables in HTML. It organizes data into rows and columns using child elements like <code class="code-container">&lt;tr&gt;</code>, <code class="code-container">&lt;th&gt;</code>, and <code class="code-container">&lt;td&gt;</code>.</p>
+          <pre>
+            <code>
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Alice&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td>Bob&lt;/td&gt;
+        &lt;td>30&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+            </code>
+          </pre>
+          <p>Explanation:</p>
+          <ul>
+            <li><code class="code-container">&lt;tr&gt;</code> defines a row.</li>
+            <li><code class="code-container">&lt;td&gt;</code> defines a header cell.</li>
+            <li><code class="code-container">&lt;td&gt;</code> defines a standard data cell.</li>
+          </ul>
+          <p>Tables help structure tabular data for better readability and accessibility.</p>
+        </section>
+        <section id="Form_Element" class="main-section" aria-labelledby="form-element-heading">
+          <header>
+            <h2 id="form-element-heading">Form Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;form&gt;</code> element in HTML is used to collect user input and submit it to a server for processing. It acts as a container for various input elements like text fields, checkboxes, radio buttons, and submit buttons.</p>
+          <pre>
+            <code>
+    &lt;form action=&quot;/submit-form&quot; method=&quot;post&quot;&gt;
+      &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;
+      &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required&gt;
+
+      &lt;label for=&quot;password&quot;>Password:&lt;/label&gt;
+      &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required&gt;
+
+      &lt;button type=&quot;submit&quot;>Login&lt;/button&gt;
+    &lt;/form&gt;
+            </code>
+          </pre>
+          <p>In this example:</p>
+          <ul>
+            <li>The <code class="code-container">action</code> attribute specifies that the form data will be submitted to <code class="code-container">/submit-form.</code></li>
+            <li>The <code class="code-container">method</code> can be set to <code class="code-container">GET</code> or <code class="code-container">POST</code>. In this case, the method is set to <code class="code-container">POST</code>, meaning the data will be sent in the body of the HTTP request.</li>
+            <li>Each <code class="code-container">&lt;label&gt;</code> is associated with an <code class="code-container">&lt;input&gt;</code> field through the <code class="code-container">for</code> and <code class="code-container">id</code> attributes, enhancing accessibility.</li>
+          </ul>
+        </section>
+        <section id="Section_Element" class="main-section" aria-labelledby="section-element-heading">
+          <header>
+            <h2 id="section-element-heading">Section Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;section&gt;</code> element groups related content in a webpage. It helps organize content into meaningful sections. The main purposes include:</p>
+          <ul>
+            <li>Used for thematically related content.</li>
+            <li>Often contains a heading (<code class="code-container">&lt;h1&gt;</code>-<code class="code-container">&lt;h6&gt;</code>).</li>
+            <li>Improves document structure and accessibility.</li>
+          </ul>
+          <pre>
+            <code>
+    &lt;section&gt;
+      &lt;h2&gt;About Us&lt;/h2&gt;
+      &lt;p&gt;We provide web development tutorials.&lt;/p&gt;
+    &lt;/section&gt;        
+            </code>
+          </pre>
+        </section>
+        <section id="Article_Element" class="main-section" aria-labelledby="article-element-heading">
+          <header>
+            <h2 id="article-element-heading">Article Element</h2>
+          </header>
+          <p>The <code class="code-container">&lt;article&gt;</code> element represents self-contained content that can be independently distributed, like blog posts or news articles. It is used for a standalone content and often includes a heading and text. <code class="code-container">&lt;article&gt;</code> helps with structuring and reusability.</p>
+          <pre>
+            <code>
+    &lt;article&gt;
+      &lt;h2&gt;Latest News&lt;/h2&gt;
+      &lt;p&gt;New web development trends are emerging this year.&lt;/p&gt;
+    &lt;/article&gt;
+            </code>
+          </pre>
+        </section>
+        <section id="Id_Attribute" class="main-section" aria-labelledby="id-attribute-heading">
+          <header>
+            <h2 id="id-attribute-heading">Id Attribute</h2>
+          </header>
+          <p>The id attribute assigns a unique identifier to an element, used for linking (<code class="code-container">#id</code> in URLs), JavaScript (<code class="code-container">document.getElementById()</code>), and CSS styling (<code class="code-container">#id</code>). It must be unique within a document and should avoid whitespace.</p>
+          <pre>
+            <code>
+    &lt;p id=&quot;intro&quot;&gt;Welcome!&lt;/p&gt;
+            </code>
+          </pre>
+          <p><span class="strong">Note</span>:</p>
+          <ul>
+            <li><code class="code-container">id</code> selectors in CSS have high specificity, making styles harder to override.</li>
+            <li>For flexibility, prefer class selectors in styling and <code class="code-container">data-*</code> attributes in JavaScript when possible.</li>
+          </ul>
+        </section>
+        <section id="Class_Attribute" class="main-section" aria-labelledby="class-attribute-heading">
+          <header>
+            <h2 id="class-attribute-heading">Class Attribute</h2>
+          </header>
+          <p>The <code class="code-container">class</code> attribute in HTML assigns one or more class names to an element, facilitating CSS styling and JavaScript manipulation. Multiple class names should be separated by spaces.</p>
+          <pre>
+            <code>
+    &lt;p class=&quot;note editorial&quot;&gt;This is a note.&lt;/p&gt;       
+            </code>
+          </pre>
+          <p>You can target these classes in CSS to apply styling.</p>
+          <p>Best practices for class</p>
+          <ul>
+            <li><span class="strong">Semantic Naming</span>: Use class names that reflect the purpose or meaning of the element, rather than its appearance. For instance, prefer <code class="code-container">.warning</code> over <code class="code-container">.red-text</code>.</li>
+            <li><span class="strong">Valid Identifiers</span>: While class names can include any Unicode characters (except ASCII whitespace), it's advisable to use valid CSS identifiers to avoid the need for escaping characters in CSS selectors.</li>
+          </ul>
+        </section>
+        <section id="Href_Attribute" class="main-section" aria-labelledby="href-attribute-heading">
+          <header>
+            <h2 id="href-attribute-heading">Href Attribute</h2>
+          </header>
+          <p>The <code class="code-container">href</code> (Hypertext Reference) attribute defines the URL or resource a link points to. It is used in:</p>
+          <p><code class="code-container">&lt;a&gt;</code> (Anchor) element for creating hyperlinks.</p>
+          <pre>
+            <code>
+  &lt;a href=&quot;https://example.com&quot;>Visit Example&lt;/a&gt;
+            </code>
+          </pre>
+          <p><code class="code-container">&lt;link&gt;</code> (Link) element for linking external sources</p>
+          <pre>
+            <code>
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+            </code>
+          </pre>
+        </section>
+        <section id="Src_Attribute" class="main-section" aria-labelledby="src-attribute-heading">
+          <header>
+            <h2 id="src-attribute-heading">Src Attribute</h2>
+          </header>
+          <p>The <code class="code-container">src</code> (source) attribute specifies the location of an external resource for various HTML elements:</p>
+          <p><code class="code-container">&lt;img&gt;</code> for displaying images.</p>
+          <pre> 
+            <code>
+  &lt;img src=&quot;image.jpg&quot; alt=&quot;Description&quot;&gt;            
+            </code>
+          </pre>
+          <p><code class="code-container">&lt;script&gt;</code> for linking Javascript external files.</p>
+          <pre> 
+            <code>
+  &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;            
+            </code>
+          </pre>
+          <p><code class="code-container">&lt;iframe&gt;</code> for embedding another web page.</p>
+          <pre> 
+            <code>
+  &lt;iframe src=&quot;https://example.com&quot;&gt;&lt;/iframe&gt;            
+            </code>
+          </pre>
+          <p><code class="code-container">&lt;audio&gt;</code> and <code class="code-container">&lt;video&gt;</code> for embedding media files</p>
+          <pre> 
+            <code>
+  &lt;video src=&quot;video.mp4&quot; controls&gt;&lt;/video&gt;            
+            </code>
+          </pre>
+          <p>Key points of using <code class="code-container">src</code>:</p>
+          <ul>
+            <li>Accepts absolute (<code class="code-container">https://example.com/file.js</code>) and relative (<code class="code-container">file.js</code>) URLs.</li>
+            <li>Ensures proper loading of images, scripts, and media content.</li>
+          </ul>
+        </section>
+        <section id="Alt_Attribute" class="main-section" aria-labelledby="alt-attribute-heading">
+          <header>
+            <h2 id="alt-attribute-heading">Alt Attribute</h2>
+          </header>
+          <p>The <code class="code-container">alt</code> (alternative text) attribute provides a text description for images in the <code class="code-container">&lt;img&gt;</code> element. The main purposes are to improve accessibility for screen readers, to displays text if the image fails to load, and to help with SEO by providing context to search engines.</p>
+          <pre>
+            <code>
+    &lt;img src=&quot;image.jpg&quot; alt=&quot;A scenic mountain view&quot;&gt;          
+            </code>
+          </pre>
+          <p>It's best to keep <code class="code-container">alt</code> text descriptive but concise. Use an empty <code class="code-container">alt=""</code> for purely decorative images.</p>
+        </section>
+        <section id="Title_Attribute" class="main-section" aria-labelledby="title-attribute-heading">
+          <header>
+            <h2 id="title-attribute-heading">Title Attribute</h2>
+          </header>
+          <p>The <code class="code-container">title</code> attribute provides additional information about an element, shown as a tooltip on hover.</p>
+          <p>Key points:</p>
+          <ul>
+            <li>Provides extra details but shouldn't be the only source of important information.</li>
+            <li>Not always accessible on touchscreens or assistive technologies.</li>
+            <li>Best used for non-essential hints or descriptions.</li>
+          </ul>
+          <pre>
+            <code>
+    &lt;a href=&quot;https://example.com&quot; title=&quot;Visit Example website&quot;>Example&lt;/a&gt;            
+            </code>
+          </pre>
+          <p>For better accessibility, prefer <span class="strong">visible text</span> or <span class="strong">ARIA attributes</span> over <code class="code-container">title</code>.</p>
+        </section>
+        <section id="Style_Attribute" class="main-section" aria-labelledby="style-attribute-heading">
+          <header>
+            <h2 id="style-attribute-heading">Style Attribute</h2>
+          </header>
+          <p>The <code class="code-container">style</code> attribute is a global attribute that contains CSS styling declarations to be applied to an element. However, it is recommended to define styles in separate files or within a <code class="code-container">&lt;style&gt;</code> element in the document's <code class="code-container">&lt;head&gt;</code> for better maintainability.</p>
+          <pre>
+            <code>
+    &lt;p style=&quot;color: blue; font-size: 14px;&quot;&gt;This is a styled paragraph.&lt;/p&gt;          
+            </code>
+          </pre>
+          <p>In this example, the paragraph text will appear in blue with a font size of 14 pixels.</p>
+          <p>Couple things to consider</p>
+          <ul>
+            <li><span class="strong">Specificity</span>: Inline styles have higher specificity compared to styles defined in <code class="code-container">&lt;style&gt;</code> tags or external stylesheets.</li>
+            <li><span class="strong">Maintainability</span>: Using inline styles can make your HTML code harder to maintain. It's often better to define styles in a <code class="code-container">&lt;style&gt;</code> tag within the <code class="code-container">&lt;head&gt;</code> section or in an external CSS file.</li>
+          </ul>
+        </section>
+        <section id="Target_Attribute" class="main-section" aria-labelledby="target-attribute-heading">
+          <header>
+            <h2 id="target-attribute-heading">Target Attribute</h2>
+          </header>
+          <p>The <code class="code-container">target</code> attribute in HTML specifies where to display the linked resource when a hyperlink is clicked. It's commonly used with the <code class="code-container">&lt;a&gt;</code> (Anchor) element and can also be applied to <code class="code-container">&lt;area&gt;</code>, <code class="code-container">&lt;form&gt;</code>, and <code class="code-container">&lt;base&gt;</code> elements. Most used values for <code class="code-container">target</code>:</p>
+          <ul>
+            <li><code class="code-container">_self</code> (default): Opens in the same tab.</li>
+            <li><code class="code-container">_blank</code>: Opens in a new tab/window.</li>
+            <li><code class="code-container">_parent</code>: Opens in the parent frame.</li>
+            <li><code class="code-container">_top</code>: Opens in the full window.</li>
+          </ul>
+          <pre>
+            <code>
+    &lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Visit Example&lt;/a&gt;
+            </code>
+          </pre>
+          <p>For security, add <code class="code-container">rel="noopener"</code> with <code class="code-container">_blank</code> to prevent access to <code class="code-container">window.opener</code>.</p>
+        </section>
+        <section id="Placeholder_Attribute" class="main-section" aria-labelledby="placeholder-attribute-heading">
+          <header>
+            <h2 id="placeholder-attribute-heading">Placeholder Attribute</h2>
+          </header>
+          <p>The <code class="code-container">placeholder</code> attribute in HTML specifies a short hint that describes the expected value of an input field or textarea. This hint is displayed inside the input field before the user enters a value.</p>
+          <pre>
+            <code>
+    &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; placeholder=&quot;Enter your username&quot;&gt;
+            </code>
+          </pre>
+          <p>In this example, the input field will display "Enter your username" as a placeholder text until the user types in the field.</p>
+          <p>Couple things to consider</p>
+          <ul>
+            <li><span class="strong">Not a Label Substitute</span>: Placeholders disappear when typing, so always use <code class="code-container">&lt;label&gt;</code> for accessibility.</li>
+            <li><span class="strong">Accessibility</span>: Relying solely on placeholders for instructions can be problematic for users with cognitive or visual impairments. Always use <code class="code-container">&lt;label&gt;</code> elements to ensure form fields are accessible.</li>
+          </ul>
+        </section>
+        <section id="Value_Attribute" class="main-section" aria-labelledby="value-attribute-heading">
+          <header>
+            <h2 id="value-attribute-heading">Value Attribute</h2>
+          </header>
+          <p>The <code class="code-container">value</code> attribute in HTML sets the initial value of form elements such as <code class="code-container">&lt;input&gt;</code>, <code class="code-container">&lt;button&gt;</code>, and <code class="code-container">&lt;option&gt;</code>. Example of usages:</p>
+          <p><span class="strong">Text Input Field</span></p>
+          <pre>
+            <code>
+  &lt;input type=&quot;text&quot; value=&quot;Default Text&quot;&gt;
+            </code>
+          </pre>
+          <p>Displays an input field pre-filled with "Default Text".</p>
+          <p><span class="strong">Radio Button</span></p>
+          <pre>
+            <code>
+  &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;option1&quot;&gt;
+            </code>
+          </pre>
+          <p>Assigns "option1" as the value sent when this radio button is selected.</p>
+          <p><span class="strong">Button Element</span></p>
+          <pre>
+            <code>
+  &lt;button type=&quot;submit&quot; value=&quot;SubmitForm&quot;&gt;Submit&lt;/button&gt;
+            </code>
+          </pre>
+          <p>Associates "SubmitForm" as the value when this button is clicked.</p>
+          <p><span class="strong">Note</span>: The value attribute is crucial for form data submission, as it determines the data sent to the server upon form submission.</p>
+        </section>
+        <section id="Name_Attribute" class="main-section" aria-labelledby="name-attribute-heading">
+          <header>
+            <h2 id="name-attribute-heading">Name Attribute</h2>
+          </header>
+          <p>The <code class="code-container">name</code> attribute assigns an identifier to form controls like <code class="code-container">&lt;input&gt;</code>, <code class="code-container">&lt;select&gt;</code>, and <code class="code-container">&lt;textarea&gt;</code>, facilitating data organization upon form submission. Each control's name and value are sent as a pair to the server.</p>
+          <pre>
+            <code>
+    &lt;form action=&quot;/submit&quot; method=&quot;post&quot;&gt;
+      &lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
+      &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;user_email&quot;&gt;
+      &lt;button type=&quot;submit&quot;>Submit&lt;/button&gt;
+    &lt;/form&gt;
+            </code>
+          </pre>
+          <p>In this example, the input field's <code class="code-container">name</code> is <code class="code-container">user_email</code>. Upon submission, the server receives the input's data under this identifier.</p>
+          <p><span class="strong">Note</span>: Proper use of the <code class="code-container">name</code> attribute ensures accurate data handling during form processing.</p>
+        </section>
+        <section id="Comment" class="main-section" aria-labelledby="comment-heading">
+          <header>
+            <h2 id="comment-heading">Comment</h2>
+          </header>
+          <p>In HTML, comments are used to insert notes or prevent code from being executed. They begin with <code class="code-container">&lt;!--&lt;</code> and end with <code class="code-container">--&gt;</code>.</p>
+          <pre>
+            <code>
+    &lt;!-- This is a comment --&gt;
+    &lt;p&gt;This paragraph is visible.&lt;/p&gt;
+    &lt;!-- &lt;p&gt;This paragraph is hidden.&lt;/p&gt; -->
+            </code>
+          </pre>
+          <p>Several points to consider:</p>
+          <ul>
+            <li><span class="strong">Placement</span>: Comments can be placed before or after the <code class="code-container">&lt;!DOCTYPE&gt;</code> declaration and the <code class="code-container">&lt;html&gt;</code> element.</li>
+            <li><span class="strong">Restrictions</span>: Avoid placing comments within tags, as they are only permitted as content. Additionally, comments cannot contain the string <code class="code-container">--</code> or start with <code class="code-container">&gt;</code> or <code class="code-container">-&gt;</code>.</li>
+            <li><span class="strong">Non-Nesting</span>: Comments cannot be nested. The first occurrence of <code class="code-container">--&gt;</code> closes the comment.</li>
+          </ul>
+          <p>Proper use of comments enhances code readability and aids in documentation.</p>
+        </section>
+        <section id="Reference" class="main-section" aria-labelledby="reference-heading">
+          <header>
+            <h2 id="reference-heading">Reference</h2>
+          </header>
+          <p>All the information on this page is sourced from <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" class="link-color-reset">MDN</a>.</p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

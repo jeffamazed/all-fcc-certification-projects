@@ -1,0 +1,183 @@
+/* Global property */
+
+:root {
+  --background-color: #F5F0E1;
+  --heading-color: #800000;
+  --button-color: #CBA135;
+  --section-color: #3B3A36;
+  --border-color: #3C5B4C;
+}
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  color: white;
+}
+
+.header, .main-container, .result-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 20px;
+}
+
+.header {
+  gap: 10px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 130px;
+}
+
+h1 {
+  font-family: Cinzel, serif;
+  font-size: 3.5rem;
+  color: var(--heading-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-container {
+  gap: 20px;
+  position: relative;
+  padding: 25px;
+  background-color: var(--section-color);
+  border: 5px solid var(--border-color);
+}
+
+.number-label, .number-input, .convert-btn, .output {
+  font-size: 2.5rem;
+}
+
+.number-input {
+  padding: 10px;
+  width: 100%;
+  border: 3px solid var(--border-color);
+}
+
+.number-input:focus, .convert-btn:focus, .info-btn:focus {
+  outline: none;
+  border: 2px solid #7c0a02;
+}
+
+.convert-btn {
+  width: 100%;
+  background-color: var(--button-color);
+  border: 2px solid #8A6F2D;
+  padding: 10px;
+}
+
+.convert-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--button-color);
+}
+
+.info-btn {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  background-color: #7BA7AB;
+  border: 1px solid #4b6a6c;
+  padding: 2px;
+}
+
+.info-btn:hover {
+  cursor: pointer;
+  background-color: #6A969A;
+  transform: scale(1.02);
+  box-shadow: 0 0 2px #7BA7AB;
+}
+
+.result-info-container {
+  position: relative;
+}
+
+.result-container {
+  width: 100%;
+  background-color: var(--section-color);
+  border: 5px dashed var(--border-color);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.info-container {
+  position: absolute;
+  font-size: 1.8rem;
+  width: 100%;
+  background-color: var(--section-color);
+  border: 5px solid var(--border-color);
+  padding: 10px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.error {
+  background-color: #ffaeae; 
+  color: #a40000;            
+  border-color: #a40000; 
+}
+
+/*Wider width properties*/
+
+@media only screen and (min-width: 601px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  .number-label, .number-input, .convert-btn, .output {
+    font-size: 3rem;
+  }
+
+  .info-container {
+    font-size: 2rem;
+  }
+}
+
+
+
+

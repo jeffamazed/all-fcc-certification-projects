@@ -1,0 +1,269 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-bg-clr: #1b1c35;
+  --main-font-clr: #e4e4e4;
+  --dec-btn-clr: #ff2828;
+  --inc-btn-clr: #33e633;
+  --timer-border-clr: #4648bd;
+  --timer-warning-clr: #fd3030;
+  --clock-box-shdw: 0px 0px 10px 2px #12123a;
+  --reset-btn-clr: #ffff00;
+  --start-stop-btn-clr: #03cf0d;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+main {
+  background-color: var(--main-bg-clr);
+  color: var(--main-font-clr);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.page-wrapper {
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+.setup-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.break-container,
+.session-container {
+  font-size: 2.2rem;
+  font-weight: 350;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.break-setup-container,
+.session-setup-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 103px;
+}
+
+#break-length,
+#session-length {
+  font-weight: 400;
+}
+
+.btn {
+  background-color: transparent;
+  color: var(--main-font-clr);
+  border: none;
+  font-size: 2.8rem;
+  font-weight: 300;
+  cursor: pointer;
+  text-shadow: 0 0 2px var(--main-font-clr);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.decrement-btn:hover,
+.decrement-btn:focus {
+  color: var(--dec-btn-clr);
+  text-shadow: 0 0 2px var(--dec-btn-clr);
+}
+
+.increment-btn:hover,
+.increment-btn:focus {
+  color: var(--inc-btn-clr);
+  text-shadow: 0 0 2px var(--inc-btn-clr);
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 266px;
+}
+
+.main-clock-container {
+  border: 5px solid var(--timer-border-clr);
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: var(--clock-box-shdw);
+}
+
+.warning {
+  color: var(--timer-warning-clr);
+}
+
+hr {
+  background-color: var(--timer-border-clr);
+  border: none;
+  border-radius: 15px;
+  height: 5px;
+}
+
+#timer-label {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+#time-left {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 8rem;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reset-btn:hover,
+.reset-btn:focus {
+  color: var(--reset-btn-clr);
+  text-shadow: 0 0 2px var(--reset-btn-clr);
+}
+
+.start-stop-btn:hover,
+.start-stop-btn:focus {
+  color: var(--start-stop-btn-clr);
+  text-shadow: 0 0 2px var(--start-stop-btn-clr);
+}
+
+#start_stop,
+#reset {
+  font-size: 3.2rem;
+  min-width: 3.2rem;
+  min-height: 3.2rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(100%);
+}
+
+fieldset {
+  border: none;
+}
+
+.logo {
+  width: 100px;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 500px) {
+  h1 {
+    font-size: 5.5rem;
+  }
+
+  .setup-container {
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  .break-container,
+  .session-container {
+    font-size: 2.4rem;
+  }
+
+  .break-setup-container,
+  .session-setup-container {
+    min-width: 109px;
+  }
+
+  .btn {
+    font-size: 3rem;
+  }
+
+  .clock-container {
+    min-width: 280px;
+  }
+
+  #timer-label {
+    font-size: 3.2rem;
+  }
+
+  #time-left {
+    font-size: 8.5rem;
+  }
+
+  #start_stop,
+  #reset {
+    font-size: 3.4rem;
+    min-width: 3.4rem;
+    min-height: 3.4rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 6rem;
+  }
+
+  .break-container,
+  .session-container {
+    font-size: 2.8rem;
+  }
+
+  .break-setup-container,
+  .session-setup-container {
+    min-width: 118px;
+  }
+
+  .btn {
+    font-size: 3.2rem;
+  }
+
+  .clock-container {
+    min-width: 293px;
+  }
+
+  #timer-label {
+    font-size: 3.4rem;
+  }
+
+  #time-left {
+    font-size: 9rem;
+  }
+
+  #start_stop,
+  #reset {
+    font-size: 3.6rem;
+    min-width: 3.6rem;
+    min-height: 3.6rem;
+  }
+}

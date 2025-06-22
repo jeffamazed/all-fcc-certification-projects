@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Roman Numeral Converter</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="https://i.imgur.com/20uHoRk.png" class="logo" alt="Legion Numbers Logo" />
+        <h1>Code of Rome</h1>
+      </header>
+      <main>
+        <div class="main-container">
+          <label for="number" class="number-label">Enter a number:</label>
+          <input 
+            id="number"
+            class="number-input"
+            type="number"
+            name="decimal number input"
+            value=""
+            aria-label="Enter a number here"
+          />
+          <button id="convert-btn" type="button" class="convert-btn" aria-label="Convert number to Roman numeral">
+            <i class="fas fa-exchange-alt"></i> Convert
+          </button>
+          <button id="info-btn" class="info-btn" type="button" aria-label="Fun fact about the Romans">
+            <i class="fas fa-question-circle"></i>
+          </button>
+        </div>
+        <div class="result-info-container">
+          <div class="result-container">
+            <p id="output" class="output"></p>
+          </div>
+          <div id="info-container" class="info-container hidden">
+            <p>The Romans had no symbol for zero — to them, <em>nothing</em> wasn't worth writing down.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

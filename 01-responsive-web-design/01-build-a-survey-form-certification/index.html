@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Rustic Plate Survey Form</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Rustic Plate Survey Form</h1>
+      <p id="description">We Truly Appreciate Your Feedback!</p>
+    </header>
+    <form id="survey-form" method="POST" action="#">
+      <!-- BIODATA -->
+      <label id="name-label" for="name" class="margin-top">Name </label>
+      <input id="name" name="name" type="text"  placeholder="Enter your name" required >
+      <label id="email-label" for="email" class="margin-top"> Email (required, used only for feedback - no spam or sharing) </label>
+      <input id="email" name="email" type="email" placeholder="Enter your email" required>
+      <!-- SURVEY QUESTIONS -->
+      <!-- Rate your experience -->
+      <label id ="number-label" for="number" class="margin-top">Rate your experience (1-10) </label>
+      <input id="number" name="rating-number" type="number" min="1" max="10" placeholder="1-10" required>
+      <!-- How was the service? -->
+      <label class="margin-top">How was the service?</label>
+      <label><input id="excellent-rating" class="inline" type="radio" name="service-rating" value="excellent" checked> Excellent</label>
+      <label><input id="good-rating" class="inline" type="radio" name="service-rating" value="good"> Good</label>
+      <label><input id="average-rating" class="inline" type="radio" name="service-rating" value="average"> Average</label>
+      <label><input id="poor-rating" class="inline" type="radio" name="service-rating" value="poor"> Poor</label>
+      <!-- Choose your preferred dish type -->
+      <label class="margin-top">Choose your preferred dish type</label>
+        <select id="dropdown" name="meal-type" required>
+          <option value="">(select one)</option>
+          <option value="1">Starter</option>
+          <option value="2">Main Course</option>
+          <option value="3">Dessert</option>
+          <option value="4">Drink</option>
+        </select>
+      <!-- What did you enjoy about our restaurant -->
+      <label class="inline2 margin-top">What did you enjoy about our restaurant?</label><label class="inline2 margin-top second-label">(Check all that apply)</label>
+      <label for="friendly-staff"><input id="friendly-staff" class=" inline" type="checkbox" name="restaurant-feedback" value="friendly-staff"> Friendly Staff</label>
+      <label for="comfortable-ambiance"><input id="comfortable-ambiance" class=" inline" type="checkbox" name="restaurant-feedback" value="comfortable-ambiance"> Comfortable Ambiance</label>
+      <label for="delicious-food"><input id="delicious-food" class=" inline" type="checkbox" name="restaurant-feedback" value="delicious-food"> Delicious Food</label>
+      <label for="fast-service"><input id="fast-service" class=" inline" type="checkbox" name="restaurant-feedback" value="fast-service"> Fast Service</label>
+      <label for="variety-of-menu-options"><input id="variety-of-menu-options" class=" inline" type="checkbox" name="restaurant-feedback" value="variety-of-menu-options"> Variety of Menu Options</label>
+      <label for="cleanliness"><input id="cleanliness" class=" inline" type="checkbox" name="restaurant-feedback" value="cleanliness"> Cleanliness</label>
+      <!-- Any comments or suggestions? -->
+      <label class="margin-top">Any comments or suggestions? (Optional)</label>
+        <textarea id="comments-suggestions" name="comments-suggestions" placeholder="Leave your review here..."></textarea>
+      <!-- Submit button -->
+      <input id="submit" class="margin-top" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

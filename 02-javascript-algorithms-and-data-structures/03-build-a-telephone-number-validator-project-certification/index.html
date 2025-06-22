@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Telephone Number Validator</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img 
+          src="https://i.imgur.com/cIkFDCr.png"
+          alt="X-xylo Logo"
+          width="120"
+        />
+        <h1>Telephone Number Validator</h1>
+      </header>
+      <main class="main">
+        <div class="phone">
+          <div class="front-camera">
+            <div class="inner-front-camera"></div>
+          </div>
+          <div class="screen">
+            <div class="home">
+              <div class="upper-home">
+                <div class="upper-nav-bar">
+                  <span id="clock" class="clock"></span>
+                  <div class="battery-network">
+                    <i class="fa-solid fa-wifi"></i>
+                    <i class="fa-solid fa-signal"></i>
+                    <i class="fa-solid fa-battery-half"></i>
+                  </div>
+                </div>
+                <div class="upper-info-container">
+                  <div class="date-quote">
+                    <span id="date" class="date"></span>
+                    <div class="quote-container">
+                      <p class="quote-generate">Quote of the day:</p>
+                      <p id="quote" class="quote"></p>
+                    </div>
+                  </div>
+                  <div>
+                    <button id="quote-btn" class="quote-btn" type="button" aria-label="Quote">Generate Quote</button>
+                  </div>
+                </div>
+              </div>
+              <div class="lower-home">
+                <div class="lower-info-container">
+                  <div class="validator-app">
+                    <button id="validator-btn" class="validator-btn" type="button" aria-label="Validator">Validator</button>
+                  </div>
+                  <div class="bottom-apps">
+                    <div class="app telephone">
+                      <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="app messaging">
+                      <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="app browser">
+                      <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="app camera">
+                      <i class="fa-solid fa-camera"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="lower-nav-bar">
+                  <button id="home-btn" class="home-btn" type="button" aria-label="Home">
+                    <i class="fa-solid fa-house"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="validator-window" class="validator-window hidden">
+              <div class="input-result-container">
+                <label for="user-input">Enter a Phone Number:</label>
+                <input id="user-input" class="user-input" type="text" name="telephone-number" />
+                <div id="results-div" class="results-div" aria-live="polite"></div>
+              </div>
+              <div class="validator-buttons">
+                <button id="check-btn" class="validator-app-btn" type="button" aria-label="Check">Check</button>
+                <button id="clear-btn" class="validator-app-btn" type="button" aria-label="Clear">Clear</button>
+              </div>
+            </div>
+          </div>
+          <div class="volume-btn"></div>
+          <div class="power-btn"></div>
+        </div>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

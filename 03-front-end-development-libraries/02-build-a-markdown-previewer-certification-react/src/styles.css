@@ -1,0 +1,260 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/inter-v19-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/inter-v19-latin-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/poppins-v23-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/poppins-v23-latin-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/fira-code-v26-latin-regular.woff2") format("woff2");
+}
+
+:root {
+  --main-bg: #90d0e6;
+  --toolbar-bg: #55c7ec;
+  --app-bg: #cae1eb;
+  --box-shadow: 0 0 5px 2px #242424a9;
+  --main-border-clr: #000063;
+  --main-font-clr: #202020;
+  --sec-font-clr: #474747;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--main-bg);
+  font-family: Inter, sans-serif;
+  color: var(--main-font-clr);
+}
+
+#root {
+  display: grid;
+  place-items: center;
+}
+
+main {
+  height: 100vh;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.toolbar {
+  width: 100%;
+  background-color: var(--toolbar-bg);
+  border-bottom: 1px solid var(--main-border-clr);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  font-weight: bold;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-family: "Poppins", sans-serif;
+}
+
+.toggle-max-min-btn {
+  border: none;
+  background-color: var(--toolbar-bg);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: var(--main-font-clr);
+  font-size: 1.5rem;
+}
+
+.toggle-max-min-btn:hover {
+  color: #616161;
+}
+
+.editor-container,
+.previewer-container {
+  width: 100%;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--main-border-clr);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  transition: height 0.3s ease, border 0.3s ease, box-shadow, 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.editor-container {
+  height: 35vh;
+}
+
+.previewer-container {
+  height: 65vh;
+}
+
+.maximize {
+  height: 100%;
+}
+
+#editor {
+  max-width: 100%;
+  border: none;
+  resize: none;
+  padding: 0.5rem;
+  overflow-y: scroll;
+  flex: 1;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: var(--app-bg);
+  font-family: "Fira Code", Consolas, "Courier New", monospace;
+  font-size: 1.2rem;
+}
+
+#preview * {
+  margin: revert;
+  padding: revert;
+}
+
+#preview {
+  width: 100%;
+  overflow-y: scroll;
+  background-color: var(--app-bg);
+  flex: 1;
+  font-size: 1.4rem;
+  padding: 1.6rem;
+}
+
+#preview pre,
+#preview code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  font-family: "Fira Code", Consolas, "Courier New", monospace;
+}
+
+#preview h1 {
+  border-bottom: 2px solid var(--main-font-clr);
+}
+
+#preview h2 {
+  border-bottom: 1px solid var(--main-font-clr);
+}
+
+#preview blockquote {
+  border-left: 3px solid var(--main-font-clr);
+  padding-left: 0.5rem;
+  color: var(--sec-font-clr);
+}
+
+#preview img {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+#preview table,
+#preview th,
+#preview td {
+  border: 1px solid var(--main-font-clr);
+  text-align: left;
+  border-collapse: collapse;
+}
+
+#preview th,
+#preview td {
+  padding: 0.5rem 1rem;
+}
+
+#preview li {
+  margin: 0.5rem 0;
+}
+@media screen and (min-width: 500px) {
+  .toolbar,
+  .toggle-max-min-btn {
+    font-size: 1.6rem;
+  }
+
+  .editor-container {
+    max-width: 80%;
+  }
+
+  #editor {
+    font-size: 1.3rem;
+  }
+
+  #preview {
+    font-size: 1.5rem;
+  }
+
+  #preview pre,
+  #preview code {
+    font-size: 1.3rem;
+    background-color: #f5f2f0;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .editor-container {
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .toolbar,
+  .toggle-max-min-btn {
+    font-size: 1.65rem;
+  }
+
+  #editor {
+    font-size: 1.4rem;
+  }
+
+  #preview {
+    font-size: 1.6rem;
+  }
+
+  #preview pre,
+  #preview code {
+    font-size: 1.4rem;
+  }
+}

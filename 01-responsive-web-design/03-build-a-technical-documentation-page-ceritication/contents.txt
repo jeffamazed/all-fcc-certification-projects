@@ -1,0 +1,43 @@
+1. Basic Structure of an HTML Document
+This section should cover the core structure of an HTML document, such as the <!DOCTYPE html>, <html>, <head>, and <body> tags.
+You can also explain how to create a simple "Hello, World!" page and highlight key elements that define a webpage's structure.
+2. Common HTML Elements
+Provide an overview of commonly used HTML tags like <h1>, <p>, <a>, <img>, and others. This can include:
+Headings (<h1> to <h6>)
+Paragraphs (<p>)
+Links (<a>)
+Images (<img>)
+Lists (<ul>, <ol>, <li>)
+This section introduces the basic building blocks of web content.
+3. Attributes
+Introduce HTML attributes, explaining how they provide additional information about elements, like href for links, src for images, and alt for alternative text.
+
+
+
+The core structure of an HTML document consists of several key elements that define the content and structure of a webpage. At the top, we have the <!DOCTYPE html> declaration, which defines the document type as HTML5. The root element is <html>, which contains the entire document and is typically assigned a lang attribute to specify the language of the content. Inside the <html> element, the <head> section contains metadata, links to stylesheets, and scripts, including the <meta> tags for character encoding and viewport settings. The <body> section holds the visible content of the page, such as headings, paragraphs, images, links, and other elements that users interact with. This basic structure provides the foundation for any webpage, and additional sections can be added depending on the needs of the content, like navigation, forms, and multimedia.
+
+Paragraph (<p>) – Used for text content. 
+Anchor (<a>) – Defines hyperlinks to link pages or resources.
+Image (<img>) – Embeds images in a page.
+List (<ul>, <ol>, <li>) – Used for unordered and ordered lists.
+Div (<div>) – A generic container used for grouping elements.
+Span (<span>) – Used to style or group inline elements.
+Table (<table>, <tr>, <th>, <td>) – Defines tabular data.
+Form (<form>, <input>, <textarea>, <button>) – Allows user input, typically for submission.
+Section (<section>) – Defines a section in a document, often used for grouping content logically.
+Article (<article>) – Represents independent content like a blog post or news article.
+
+id – Specifies a unique identifier for an element.
+class – Specifies one or more class names for an element, used for styling and scripting.
+href – Specifies the URL for a hyperlink (<a> element).
+src – Specifies the source URL for an image or other media (<img>, <audio>, <video>).
+alt – Provides alternative text for images (<img>), crucial for accessibility.
+title – Provides additional information about an element, usually displayed as a tooltip.
+style – Allows inline CSS styling directly on an element.
+target – Specifies where to open a linked document (<a> element).
+placeholder – Provides a short hint inside input fields, showing the expected value (<input>, <textarea>).
+value – Specifies the current value of an input element (<input>, <button>, <option>).
+
+comment
+
+
