@@ -1,4 +1,4 @@
-# United States GDP Bar Chart
+# United States GDP - Bar Chart
 
 This project is a simple bar chart visualization of the United States GDP from 1950 to 2015.  
 It was built using **Vite** with **vanilla JavaScript**, HTML, and CSS.
