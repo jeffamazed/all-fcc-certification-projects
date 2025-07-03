@@ -1,0 +1,115 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-bg-clr: #25dbae;
+  --main-svg-clr: #e8e8e9;
+  --tooltip-bg: #7987ff4f;
+  --text-clr: #313131;
+  --box-shdw: 0 0 10px 1px #272727;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--main-bg-clr);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 1.5rem;
+}
+
+main {
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+svg {
+  background-color: var(--main-svg-clr);
+  box-shadow: var(--box-shdw);
+  border-radius: 3px;
+}
+
+#tooltip {
+  opacity: 0;
+  padding: 5px 10px;
+  min-width: 150px;
+  background-color: var(--tooltip-bg);
+  color: var(--text-clr);
+  position: absolute;
+  cursor: default;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--box-shdw);
+  border-radius: 3px;
+  font-size: 1.5rem;
+  gap: 2px;
+}
+
+rect {
+  transition: fill 0.1s;
+}
+
+.title,
+.axis-label,
+.info-label {
+  fill: var(--text-clr);
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.axis-label {
+  font-size: 2.2rem;
+  font-weight: 300;
+}
+
+.info-label {
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.bar:focus {
+  outline: 2px dashed #000;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

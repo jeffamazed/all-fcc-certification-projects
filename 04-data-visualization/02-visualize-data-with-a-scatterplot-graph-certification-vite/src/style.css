@@ -1,0 +1,123 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-bg-clr: #bacaff;
+  --main-svg-clr: #e8e8e9;
+  --tooltip-bg: #7987ff4f;
+  --text-clr: #313131;
+  --box-shdw: 0 0 10px 1px #272727;
+  --dot-stroke: #383838;
+  --tooltip-bg: #7dadf5cb;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--main-bg-clr);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 1.5rem;
+}
+
+main {
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+svg {
+  background-color: var(--main-svg-clr);
+  box-shadow: var(--box-shdw);
+  border-radius: 3px;
+}
+
+text {
+  fill: var(--text-clr);
+}
+
+.upper-title {
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+.lower-title {
+  font-weight: 500;
+}
+
+.lower-title,
+.axis-label {
+  font-size: 2rem;
+}
+
+.dot {
+  stroke: var(--dot-stroke);
+}
+
+.legend-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#tooltip {
+  opacity: 0;
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  background-color: var(--tooltip-bg);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1.15rem;
+  transition: opacity 0.2s;
+  min-width: 170px;
+  max-width: 200px;
+  box-shadow: var(--box-shdw);
+}
+
+#legend circle {
+  stroke: black;
+}
+
+#tooltip dt,
+#tooltip dd {
+  display: inline;
+}
+
+.dot:focus {
+  outline: 2px dashed #000;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
