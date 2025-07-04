@@ -117,7 +117,7 @@ function renderChart({ data, svg, chart, tooltip, width, height, margin }) {
 
   legend
     .append("text")
-    .text("Category")
+    .text("Categories")
     .attr("x", legendTitleX)
     .attr("text-anchor", "middle")
     .attr("y", legendTitleY)
