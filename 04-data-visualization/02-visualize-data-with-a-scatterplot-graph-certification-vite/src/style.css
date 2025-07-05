@@ -38,8 +38,9 @@ body {
 }
 
 main {
-  min-height: 100vh;
-  min-width: 100vw;
+  min-height: 100dvh;
+  width: 100dvw;
+  overflow-x: hidden;
   padding: 10px;
   display: flex;
   align-items: center;
