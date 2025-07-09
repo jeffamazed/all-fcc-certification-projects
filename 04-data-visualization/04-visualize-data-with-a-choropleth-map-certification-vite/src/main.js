@@ -51,7 +51,6 @@ json(USEducationUrl).then((eduData) => {
     const { counties, states } = topology.objects;
     const countiesFeature = feature(topology, counties);
     const statesMesh = mesh(topology, states, (a, b) => a !== b);
-    console.log(Object.keys(topology.objects)); // Should be ['counties', 'states']
 
     renderChart({
       countiesFeature,
