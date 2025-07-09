@@ -4,6 +4,7 @@ import colors from "./colors";
 
 function renderChart({
   countiesFeature,
+  statesMesh,
   eduData,
   svg,
   chart,
@@ -36,6 +37,7 @@ function renderChart({
 
   const colorScale = scaleThreshold().domain(thresholds).range(colors);
 
+  // counties
   chart
     .selectAll("path")
     .data(countiesFeature.features)
@@ -51,6 +53,13 @@ function renderChart({
     .on("pointerout", (e) => hideTooltip(e, tooltip))
     .on("focus", (e, d) => showTooltip(e, d, eduData, tooltip, height))
     .on("blur", (e) => hideTooltip(e, tooltip));
+
+  // states
+  chart
+    .append("path")
+    .datum(statesMesh)
+    .attr("d", path)
+    .attr("class", "states-mesh");
 
   // color legend
   const legendWidth = 250;

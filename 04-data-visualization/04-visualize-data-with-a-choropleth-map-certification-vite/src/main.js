@@ -1,6 +1,6 @@
 import "./style.css";
 import { select, geoPath, json } from "d3";
-import { feature } from "topojson-client";
+import { feature, mesh } from "topojson-client";
 import renderChart from "./renderChart";
 
 const app = document.getElementById("app");
@@ -48,11 +48,14 @@ json(USEducationUrl).then((eduData) => {
     const svg = select("#svg");
     const chart = select("#chart-container");
     const tooltip = select("#tooltip");
-    const { counties } = topology.objects;
+    const { counties, states } = topology.objects;
     const countiesFeature = feature(topology, counties);
+    const statesMesh = mesh(topology, states, (a, b) => a !== b);
+    console.log(Object.keys(topology.objects)); // Should be ['counties', 'states']
 
     renderChart({
       countiesFeature,
+      statesMesh,
       eduData,
       svg,
       chart,

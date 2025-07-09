@@ -7,7 +7,7 @@
 }
 
 :root {
-  --main-bg-clr: #f1fff0;
+  --main-bg-clr: #c3c5ff;
   --main-svg-clr: #f3f3fc;
   --text-clr: #313131;
   --box-shdw: 0 0 10px 1px #272727;
@@ -103,6 +103,12 @@ text,
 .county:focus {
   outline: 2px dashed #000;
   outline-offset: 2px;
+}
+
+.states-mesh {
+  fill: none;
+  stroke: var(--main-svg-clr);
+  stroke-width: 1.1;
 }
 
 .sr-only {
