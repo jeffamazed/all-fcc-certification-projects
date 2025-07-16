@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Program for managing salon service appoointments
+# Program for managing salon service appointments
 
 PSQL="psql -X --username=freecodecamp --dbname=salon --no-align --tuples-only -c"
 
