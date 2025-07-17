@@ -29,7 +29,7 @@ SERVICE() {
       HANDLE_SERVICE "$SERVICE_ID_SELECTED"
       break
       ;;
-    *) echo -e "\nI could not find that service. Please enter a valid option (0-10).\n" ;;
+    *) echo -e "\nI could not find that service. Please enter a valid option (1-10).\n" ;;
     esac
   done
 }
