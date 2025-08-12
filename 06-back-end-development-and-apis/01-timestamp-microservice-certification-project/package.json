@@ -1,0 +1,21 @@
+{
+  "name": "timestamp-microservice-certification-project-fcc",
+  "version": "1.0.0",
+  "description": "Timestamp microservice project for freeCodeCamp certification.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.12.4",
+    "cors": "^2.8.0"
+  },
+  "author": "jeffamazed",
+  "keywords": [
+    "node",
+    "express",
+    "freeCodeCamp"
+  ],
+  "license": "MIT",
+  "private": true
+}
