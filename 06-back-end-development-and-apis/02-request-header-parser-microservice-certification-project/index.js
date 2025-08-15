@@ -19,9 +19,28 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 
+// handle middleware
+function handleMiddleware(req, res, next) {
+  req.ipaddress = req.ip.replace(/^::ffff:/, "");
+  req.language = req.headers["accept-language"];
+  req.software = req.headers["user-agent"];
+  next();
+}
+
+// middleware
+app.use(handleMiddleware);
+
 // your first API endpoint...
-app.get("/api/hello", function (req, res) {
-  res.json({ greeting: "hello API" });
+app.get("/api/whoami", (req, res) => {
+  const ipaddress = req.ipaddress || null;
+  const language = req.language || null;
+  const software = req.software || null;
+
+  res.json({
+    ipaddress,
+    language,
+    software,
+  });
 });
 
 // listen for requests :)
