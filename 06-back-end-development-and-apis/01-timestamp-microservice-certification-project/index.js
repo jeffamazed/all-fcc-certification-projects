@@ -20,43 +20,35 @@ app.get("/", function (req, res) {
 
 // get route for getting current date unix and utc
 app.get("/api/:date?", (req, res) => {
-  try {
-    const dateParam = req.params.date;
-    const regex = /^\d+$/;
-    let date;
+  const dateParam = req.params.date;
+  const regex = /^\d+$/;
+  let date;
 
-    // to check if no date param is provided
-    if (!dateParam) {
-      date = new Date();
-      res.status(200).json({
-        unix: date.getTime(),
-        utc: date.toUTCString(),
-      });
-    }
+  // to check if no date param is provided
+  if (!dateParam) {
+    date = new Date();
+    res.status(200).json({
+      unix: date.getTime(),
+      utc: date.toUTCString(),
+    });
+  }
 
-    // to check if the date param format is YYYY-MM-DD or unix format
-    if (regex.test(dateParam)) {
-      // handles unix format, convert to number first
-      date = new Date(Number(dateParam));
-    } else {
-      // handles date string
-      date = new Date(dateParam);
-    }
+  // to check if the date param format is YYYY-MM-DD or unix format
+  if (regex.test(dateParam)) {
+    // handles unix format, convert to number first
+    date = new Date(Number(dateParam));
+  } else {
+    // handles date string
+    date = new Date(dateParam);
+  }
 
-    // to check if the date provided is invalid
-    if (Number.isNaN(date.getTime())) {
-      return res.status(400).json({ error: "Invalid Date" });
-    } else {
-      return res.status(200).json({
-        unix: date.getTime(),
-        utc: date.toUTCString(),
-      });
-    }
-  } catch (e) {
-    console.error("Error occurs", e.stack, e.message);
-    res.status(500).json({
-      success: false,
-      message: "Something went wrong! Please try again",
+  // to check if the date provided is invalid
+  if (Number.isNaN(date.getTime())) {
+    return res.status(400).json({ error: "Invalid Date" });
+  } else {
+    return res.status(200).json({
+      unix: date.getTime(),
+      utc: date.toUTCString(),
     });
   }
 });
