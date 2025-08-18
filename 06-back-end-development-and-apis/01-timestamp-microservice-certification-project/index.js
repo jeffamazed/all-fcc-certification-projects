@@ -27,7 +27,7 @@ app.get("/api/:date?", (req, res) => {
   // to check if no date param is provided
   if (!dateParam) {
     date = new Date();
-    res.status(200).json({
+    return res.status(200).json({
       unix: date.getTime(),
       utc: date.toUTCString(),
     });
