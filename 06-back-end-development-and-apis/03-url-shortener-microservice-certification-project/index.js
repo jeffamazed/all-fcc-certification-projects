@@ -8,8 +8,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // short url counter
-let shortUrlCounter = 0;
-const urlCollection = {};
+let shortUrlCounter = 1;
+const urlCollection = {
+  1: "https://github.com/jeffamazed",
+};
 
 app.use(cors());
 app.use("/public", express.static(`${process.cwd()}/public`));
