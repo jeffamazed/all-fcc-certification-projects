@@ -1,0 +1,23 @@
+{
+  "name": "url-shortener-microservice-fcc-certification-project",
+  "version": "1.0.0",
+  "author": "jeffamazed",
+  "keywords": [
+    "microservice",
+    "express",
+    "nodejs"
+  ],
+  "private": true,
+  "description": "FCC certification project URL shortener microservice.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "license": "MIT"
+}
