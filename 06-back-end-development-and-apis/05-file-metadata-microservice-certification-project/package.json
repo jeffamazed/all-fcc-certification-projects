@@ -1,0 +1,23 @@
+{
+  "name": "file-metadata-fcc-certification-project",
+  "version": "1.0.0",
+  "description": "FCC file metadata microservice API certification project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "multer": "^2.0.2"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "backend"
+  ],
+  "license": "MIT",
+  "author": "jeffamazed",
+  "private": true
+}
