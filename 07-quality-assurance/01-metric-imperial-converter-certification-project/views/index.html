@@ -70,6 +70,10 @@
               $("#result").text(data.string || data);
               $("#jsonResult").text(JSON.stringify(data));
             },
+            error: function (xhr) {
+              $("#result").text(`${xhr.responseText}`);
+              $("#jsonResult").text(`"${xhr.responseText}"`);
+            },
           });
         });
       });
