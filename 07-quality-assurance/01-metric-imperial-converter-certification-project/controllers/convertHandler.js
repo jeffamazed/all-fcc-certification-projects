@@ -36,7 +36,9 @@ function ConvertHandler() {
 
   this.getUnit = function (input) {
     const unitMatch = input.match(/[a-zA-z]+$/);
-    const unit = unitMatch ? unitMatch[0] : null;
+    const unit = !Object.keys(this.fullNames).includes(unitMatch)
+      ? "invalid unit"
+      : unitMatch;
 
     return unit;
   };
