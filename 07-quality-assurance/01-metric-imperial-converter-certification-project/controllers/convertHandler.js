@@ -38,12 +38,14 @@ function ConvertHandler() {
         nums[1].split(".").length > 2
       )
         return "invalid number";
-      return numerator / denominator;
+      return Number((numerator / denominator).toFixed(5));
     } else {
       // reject multiple dots
       if (numStr.split(".").length > 2) return "invalid number";
       const number = parseFloat(numStr);
-      return Number.isNaN(number) ? "invalid number" : number;
+      return Number.isNaN(number)
+        ? "invalid number"
+        : Number(number.toFixed(5));
     }
   };
 
