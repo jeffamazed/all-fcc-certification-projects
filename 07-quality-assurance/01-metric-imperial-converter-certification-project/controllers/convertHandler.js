@@ -18,27 +18,46 @@ function ConvertHandler() {
   };
 
   this.getNum = function (input) {
-    const numMatch = input.match(/^(\d+(\.\d+)?)(\/\d+(\.\d+)?)?/);
-    let number = 1;
+    const numMatch = input.match(/^[\d.\/]+/);
+    if (!numMatch) return 1;
 
-    if (numMatch) {
-      const numStr = numMatch[0];
-      if (numStr.includes("/")) {
-        const [numerator, denominator] = numStr.split("/").map(Number);
-        number = numerator / denominator;
-      } else {
-        number = Number(numStr);
-      }
+    const numStr = numMatch[0];
+
+    if (numStr.includes("/")) {
+      const nums = numStr.split("/");
+
+      // multiple "/" not allowed
+      if (nums.length !== 2) return "invalid number";
+      const numerator = parseFloat(nums[0]);
+      const denominator = parseFloat(nums[1]);
+
+      if (
+        Number.isNaN(numerator) ||
+        Number.isNaN(denominator) ||
+        nums[0].split(".").length > 2 ||
+        nums[1].split(".").length > 2
+      )
+        return "invalid number";
+      return numerator / denominator;
+    } else {
+      // reject multiple dots
+      if (numStr.split(".").length > 2) return "invalid number";
+      const number = parseFloat(numStr);
+      return Number.isNaN(number) ? "invalid number" : number;
     }
-
-    return number;
   };
 
   this.getUnit = function (input) {
-    const unitMatch = input.match(/[a-zA-z]+$/);
-    const unit = !Object.keys(this.fullNames).includes(unitMatch)
-      ? "invalid unit"
-      : unitMatch;
+    const match = input.match(/[a-zA-Z]+$/);
+    if (!match) return "invalid unit";
+
+    let unit = match[0];
+
+    // Normalize: "L" must stay capital, others lowercase
+    if (unit.toLowerCase() === "l") unit = "L";
+    else unit = unit.toLowerCase();
+
+    if (!Object.keys(this.conversionMap).includes(unit)) return "invalid unit";
 
     return unit;
   };
@@ -55,11 +74,11 @@ function ConvertHandler() {
     const factor = this.conversionMap[initUnit].factor;
     const result = initNum * factor;
 
-    return result;
+    return Number(result.toFixed(5));
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    return `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum.toFixed(5)} ${this.spellOutUnit(returnUnit)}`;
+    return `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
   };
 }
 
