@@ -46,7 +46,7 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function (unit) {
-    return fullNames(unit);
+    return this.fullNames[unit];
   };
 
   this.convert = function (initNum, initUnit) {
