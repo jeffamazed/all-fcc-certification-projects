@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const { connect } = require("mongoose");
 require("dotenv").config();
 
 const apiRoutes = require("./routes/api.js");
@@ -33,6 +34,11 @@ apiRoutes(app);
 app.use(function (req, res, next) {
   res.status(404).type("text").send("Not Found");
 });
+
+// db connection
+connect(process.env.MONGO_URI)
+  .then(() => console.log("connected to mongodb"))
+  .catch((err) => console.error("mongodb connection error", err));
 
 //Start our server and tests!
 const listener = app.listen(process.env.PORT || 3000, function () {
