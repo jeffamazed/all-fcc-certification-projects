@@ -4,7 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const expect = require("chai").expect;
 const cors = require("cors");
+
 const { connect } = require("mongoose");
+
 require("dotenv").config();
 
 const apiRoutes = require("./routes/api.js");
@@ -42,12 +44,9 @@ app.use(function (req, res, next) {
 });
 
 // connect to mongodb
-try {
-  await connect(process.env.MONGO_URI);
-  console.log("connected to mongodb");
-} catch (err) {
-  console.error(err);
-}
+connect(process.env.MONGO_URI)
+  .then(() => console.log("connected to mongodb"))
+  .catch((err) => console.error("mongo connection failed", err));
 
 //Start our server and tests!
 const listener = app.listen(process.env.PORT || 3000, function () {
