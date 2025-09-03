@@ -11,9 +11,10 @@ suite("Functional Tests", function () {
     test("Convert a valid input such as 50L: GET request to /api/convert", function (done) {
       chai
         .request(server)
-        .keepOpen()
         .get("/api/convert?input=50L")
         .end(function (err, res) {
+          if (err) return done(err);
+
           assert.equal(res.status, 200);
           assert.equal(res.body.initNum, 50);
           assert.equal(res.body.initUnit, "L");
@@ -31,9 +32,10 @@ suite("Functional Tests", function () {
     test("Convert an invalid input such as 100g: GET request to /api/convert", function (done) {
       chai
         .request(server)
-        .keepOpen()
         .get("/api/convert?input=100g")
         .end(function (err, res) {
+          if (err) return done(err);
+
           assert.equal(res.status, 200);
           assert.equal(res.text, "invalid unit");
           done();
@@ -43,9 +45,10 @@ suite("Functional Tests", function () {
     test("Convert an invalid number such as 2/5.2/3kg: GET request to /api/convert", function (done) {
       chai
         .request(server)
-        .keepOpen()
         .get("/api/convert?input=2/5.2/3kg")
         .end(function (err, res) {
+          if (err) return done(err);
+
           assert.equal(res.status, 200);
           assert.equal(res.text, "invalid number");
           done();
@@ -55,9 +58,10 @@ suite("Functional Tests", function () {
     test("Convert an invalid number AND unit such as 3/2.2/3kilomegagramlicious: GET request to /api/convert", function (done) {
       chai
         .request(server)
-        .keepOpen()
         .get("/api/convert?input=3/2.2/3kilomegagramlicious")
         .end(function (err, res) {
+          if (err) return done(err);
+
           assert.equal(res.status, 200);
           assert.equal(res.text, "invalid number and unit");
           done();
@@ -67,9 +71,10 @@ suite("Functional Tests", function () {
     test("Convert with no number such as mi: GET request to /api/convert", function (done) {
       chai
         .request(server)
-        .keepOpen()
         .get("/api/convert?input=mi")
         .end(function (err, res) {
+          if (err) return done(err);
+
           assert.equal(res.status, 200);
           assert.equal(res.body.initNum, 1);
           assert.equal(res.body.initUnit, "mi");
