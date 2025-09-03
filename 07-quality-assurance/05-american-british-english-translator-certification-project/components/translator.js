@@ -21,19 +21,31 @@ class Translator {
 
     const result = sanitizedInput.map((w, i) => {
       let translated = w;
+      let isTranslated = false;
 
-      if (timeRegex.test(w)) translated = w.replace(":", ".");
-      else if (americanOnly[w]) translated = americanOnly[w];
-      else if (americanToBritishSpelling[w])
+      if (timeRegex.test(w)) {
+        translated = w.replace(":", ".");
+        isTranslated = true;
+      } else if (americanOnly[w]) {
+        translated = americanOnly[w];
+        isTranslated = true;
+      } else if (americanToBritishSpelling[w]) {
         translated = americanToBritishSpelling[w];
-      else if (americanToBritishTitles[w])
+        isTranslated = true;
+      } else if (americanToBritishTitles[w]) {
         translated = americanToBritishTitles[w];
+        isTranslated = true;
+      }
 
       // preserve case
       if (originalWords[i] === originalWords[i].toUpperCase()) {
         translated = translated.toUpperCase();
       } else if (originalWords[i][0] === originalWords[i][0].toUpperCase()) {
         translated = this.capitalize(translated);
+      }
+
+      if (isTranslated) {
+        translated = `<span class="highlight">${translated}</span>`;
       }
 
       return translated;
@@ -55,19 +67,31 @@ class Translator {
 
     const result = sanitizedInput.map((w, i) => {
       let translated = w;
+      let isTranslated = false;
 
-      if (timeRegex.test(w)) translated = w.replace(".", ":");
-      else if (britishOnly[w]) translated = britishOnly[w];
-      else if (this.britishToAmericanSpelling[w])
+      if (timeRegex.test(w)) {
+        translated = w.replace(".", ":");
+        isTranslated = true;
+      } else if (britishOnly[w]) {
+        translated = britishOnly[w];
+        isTranslated = true;
+      } else if (this.britishToAmericanSpelling[w]) {
         translated = this.britishToAmericanSpelling[w];
-      else if (this.britishToAmericanTitles[w])
+        isTranslated = true;
+      } else if (this.britishToAmericanTitles[w]) {
         translated = this.britishToAmericanTitles[w];
+        isTranslated = true;
+      }
 
       // preserve case
       if (originalWords[i] === originalWords[i].toUpperCase()) {
         translated = translated.toUpperCase();
       } else if (originalWords[i][0] === originalWords[i][0].toUpperCase()) {
         translated = this.capitalize(translated);
+      }
+
+      if (isTranslated) {
+        translated = `<span class="highlight">${translated}</span>`;
       }
 
       return translated;
@@ -90,7 +114,5 @@ class Translator {
     return `${input.slice(0, 1).toUpperCase()}${input.slice(1)}`;
   }
 }
-
-const translator = new Translator();
 
 module.exports = Translator;
