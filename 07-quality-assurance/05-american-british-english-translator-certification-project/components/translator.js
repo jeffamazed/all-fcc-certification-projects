@@ -16,13 +16,14 @@ class Translator {
 
   toBritish(input) {
     const originalWords = this.sanitize(input);
-
     const sanitizedInput = this.sanitize(input).map((w) => w.toLowerCase());
+    const timeRegex = /^(\d{1,2}\:(\d{2}))$/;
 
     const result = sanitizedInput.map((w, i) => {
       let translated = w;
 
-      if (americanOnly[w]) translated = americanOnly[w];
+      if (timeRegex.test(w)) translated = w.replace(":", ".");
+      else if (americanOnly[w]) translated = americanOnly[w];
       else if (americanToBritishSpelling[w])
         translated = americanToBritishSpelling[w];
       else if (americanToBritishTitles[w])
@@ -49,13 +50,14 @@ class Translator {
 
   toAmerican(input) {
     const originalWords = this.sanitize(input);
-
     const sanitizedInput = this.sanitize(input).map((w) => w.toLowerCase());
+    const timeRegex = /^(\d{1,2}\.(\d{2}))$/;
 
     const result = sanitizedInput.map((w, i) => {
       let translated = w;
-      console.log(translated);
-      if (britishOnly[w]) translated = britishOnly[w];
+
+      if (timeRegex.test(w)) translated = w.replace(".", ":");
+      else if (britishOnly[w]) translated = britishOnly[w];
       else if (this.britishToAmericanSpelling[w])
         translated = this.britishToAmericanSpelling[w];
       else if (this.britishToAmericanTitles[w])
@@ -88,5 +90,7 @@ class Translator {
     return `${input.slice(0, 1).toUpperCase()}${input.slice(1)}`;
   }
 }
+
+const translator = new Translator();
 
 module.exports = Translator;
