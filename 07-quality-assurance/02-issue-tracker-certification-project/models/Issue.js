@@ -35,7 +35,7 @@ const IssueSchema = new Schema(
       default: true,
     },
   },
-  { timestamps: true },
+  { timestamps: { createdAt: "created_on", updatedAt: "updated_on" } },
 );
 
 const Issue = model("Issue", IssueSchema);
