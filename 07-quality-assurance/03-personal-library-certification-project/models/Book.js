@@ -15,7 +15,7 @@ const BookSchema = new Schema(
   { timestamps: true },
 );
 
-BookSchema.virtual("commentCount").get(function () {
+BookSchema.virtual("commentcount").get(function () {
   return this.comments.length;
 });
 
