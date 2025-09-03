@@ -30,6 +30,10 @@ const IssueSchema = new Schema(
       trim: true,
       default: "",
     },
+    open: {
+      type: Boolean,
+      default: true,
+    },
   },
   { timestamps: true },
 );
