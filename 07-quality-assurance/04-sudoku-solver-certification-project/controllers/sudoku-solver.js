@@ -1,4 +1,8 @@
 class SudokuSolver {
+  constructor() {
+    this.rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+  }
+
   validate(puzzleString) {
     if (typeof puzzleString !== "string" || puzzleString.trim().length === 0)
       return { error: "Required field missing" };
@@ -11,8 +15,7 @@ class SudokuSolver {
   }
 
   checkRowPlacement(puzzleString, row, column, value) {
-    const rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
-    const rowIndex = rows.indexOf(row);
+    const rowIndex = this.rows.indexOf(row);
     const start = rowIndex * 9;
     const end = start + 9;
 
@@ -38,8 +41,7 @@ class SudokuSolver {
   }
 
   checkRegionPlacement(puzzleString, row, column, value) {
-    const rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
-    const rowIndex = rows.indexOf(row);
+    const rowIndex = this.rows.indexOf(row);
     const colIndex = column - 1;
 
     const regionRowStart = Math.floor(rowIndex / 3) * 3;
@@ -64,15 +66,14 @@ class SudokuSolver {
 
     const row = Math.floor(dotIndex / 9);
     const col = dotIndex % 9;
-    const rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
 
     for (let n = 1; n <= 9; n++) {
       const value = String(n);
 
       if (
-        this.checkRowPlacement(puzzleString, rows[row], col + 1, value) &&
-        this.checkColPlacement(puzzleString, rows[row], col + 1, value) &&
-        this.checkRegionPlacement(puzzleString, rows[row], col + 1, value)
+        this.checkRowPlacement(puzzleString, this.rows[row], col + 1, value) &&
+        this.checkColPlacement(puzzleString, this.rows[row], col + 1, value) &&
+        this.checkRegionPlacement(puzzleString, this.rows[row], col + 1, value)
       ) {
         const newPuzzle =
           puzzleString.slice(0, dotIndex) +
