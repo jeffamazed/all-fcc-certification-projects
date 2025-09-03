@@ -7,7 +7,7 @@ class SudokuSolver {
     if (puzzleString.length !== 81)
       return { error: "Expected puzzle to be 81 characters long" };
 
-    return true;
+    return puzzleString;
   }
 
   checkRowPlacement(puzzleString, row, column, value) {
