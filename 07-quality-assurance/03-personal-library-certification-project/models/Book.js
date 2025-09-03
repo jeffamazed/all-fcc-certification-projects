@@ -23,6 +23,7 @@ BookSchema.virtual("commentcount").get(function () {
 BookSchema.set("toJSON", {
   virtuals: true,
   transform: (doc, ret) => {
+    delete ret.id;
     delete ret.__v;
     return ret;
   },
