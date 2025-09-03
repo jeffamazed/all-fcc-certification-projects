@@ -2,12 +2,6 @@ const { Schema, model } = require("mongoose");
 
 const IssueSchema = new Schema(
   {
-    project: {
-      type: String,
-      required: true,
-      trim: true,
-      minlength: 1,
-    },
     issue_title: {
       type: String,
       required: true,
