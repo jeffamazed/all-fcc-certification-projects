@@ -5,113 +5,93 @@ const britishOnly = require("./british-only.js");
 
 class Translator {
   constructor() {
+    this.americanOnly = americanOnly;
+    this.americanSpelling = americanToBritishSpelling;
+    this.americanTitles = americanToBritishTitles;
+    this.britishOnly = britishOnly;
+
+    // invert spellings/titles for the other way
     this.britishToAmericanSpelling = Object.fromEntries(
-      Object.entries(americanToBritishSpelling).map(([us, uk]) => [uk, us]),
+      Object.entries(this.americanSpelling).map(([us, uk]) => [uk, us]),
     );
-
     this.britishToAmericanTitles = Object.fromEntries(
-      Object.entries(americanToBritishTitles).map(([us, uk]) => [uk, us]),
+      Object.entries(this.americanTitles).map(([us, uk]) => [uk, us]),
     );
   }
 
-  toBritish(input) {
-    const originalWords = this.sanitize(input);
-    const sanitizedInput = this.sanitize(input).map((w) => w.toLowerCase());
-    const timeRegex = /^(\d{1,2}\:(\d{2}))$/;
+  preserveCase(word, replacement) {
+    if (word === word.toUpperCase()) return replacement.toUpperCase();
+    if (word[0] === word[0].toUpperCase()) {
+      return replacement[0].toUpperCase() + replacement.slice(1);
+    }
+    return replacement;
+  }
 
-    const result = sanitizedInput.map((w, i) => {
-      let translated = w;
-      let isTranslated = false;
+  replaceAll(input, dict, isHighlighted) {
+    let output = input;
 
-      if (timeRegex.test(w)) {
-        translated = w.replace(":", ".");
-        isTranslated = true;
-      } else if (americanOnly[w]) {
-        translated = americanOnly[w];
-        isTranslated = true;
-      } else if (americanToBritishSpelling[w]) {
-        translated = americanToBritishSpelling[w];
-        isTranslated = true;
-      } else if (americanToBritishTitles[w]) {
-        translated = americanToBritishTitles[w];
-        isTranslated = true;
+    // sort keys by length so multi-word/longer phrases are replaced first
+    const entries = Object.entries(dict).sort(
+      (a, b) => b[0].length - a[0].length,
+    );
+
+    for (const [k, v] of entries) {
+      const keyLower = k.toLowerCase();
+      let search = output.toLowerCase();
+      let pos = search.indexOf(keyLower);
+
+      while (pos !== -1) {
+        const match = output.substr(pos, k.length);
+
+        // check word boundaries: left and right must be non-letter (or start/end)
+        const before = pos === 0 ? " " : output[pos - 1];
+        const after =
+          pos + k.length >= output.length ? " " : output[pos + k.length];
+        if (/[a-z]/i.test(before) || /[a-z]/i.test(after)) {
+          // skip if embedded in a larger word
+          pos = search.indexOf(keyLower, pos + 1);
+          continue;
+        }
+
+        let rep = this.preserveCase(match, v);
+        if (isHighlighted) {
+          rep = `<span class="highlight">${rep}</span>`;
+        }
+
+        output = output.slice(0, pos) + rep + output.slice(pos + k.length);
+        search = output.toLowerCase();
+        pos = search.indexOf(keyLower, pos + rep.length);
       }
+    }
 
-      // preserve case
-      if (originalWords[i] === originalWords[i].toUpperCase()) {
-        translated = translated.toUpperCase();
-      } else if (originalWords[i][0] === originalWords[i][0].toUpperCase()) {
-        translated = this.capitalize(translated);
-      }
+    return output;
+  }
 
-      if (isTranslated) {
-        translated = `<span class="highlight">${translated}</span>`;
-      }
-
-      return translated;
+  handleTime(input, from, to, isHighlighted) {
+    const regex = new RegExp(`\\b(\\d{1,2})\\${from}(\\d{2})\\b`, "g");
+    return input.replace(regex, (m, h, m2) => {
+      let rep = `${h}${to}${m2}`;
+      if (isHighlighted) rep = `<span class="highlight">${rep}</span>`;
+      return rep;
     });
-
-    const allMatch =
-      sanitizedInput.length === result.length &&
-      sanitizedInput.every((val, i) => val === result[i].toLowerCase());
-
-    if (allMatch) return "Everything looks good to me!";
-
-    return result.join(" ");
   }
 
-  toAmerican(input) {
-    const originalWords = this.sanitize(input);
-    const sanitizedInput = this.sanitize(input).map((w) => w.toLowerCase());
-    const timeRegex = /^(\d{1,2}\.(\d{2}))$/;
-
-    const result = sanitizedInput.map((w, i) => {
-      let translated = w;
-      let isTranslated = false;
-
-      if (timeRegex.test(w)) {
-        translated = w.replace(".", ":");
-        isTranslated = true;
-      } else if (britishOnly[w]) {
-        translated = britishOnly[w];
-        isTranslated = true;
-      } else if (this.britishToAmericanSpelling[w]) {
-        translated = this.britishToAmericanSpelling[w];
-        isTranslated = true;
-      } else if (this.britishToAmericanTitles[w]) {
-        translated = this.britishToAmericanTitles[w];
-        isTranslated = true;
-      }
-
-      // preserve case
-      if (originalWords[i] === originalWords[i].toUpperCase()) {
-        translated = translated.toUpperCase();
-      } else if (originalWords[i][0] === originalWords[i][0].toUpperCase()) {
-        translated = this.capitalize(translated);
-      }
-
-      if (isTranslated) {
-        translated = `<span class="highlight">${translated}</span>`;
-      }
-
-      return translated;
-    });
-
-    const allMatch =
-      sanitizedInput.length === result.length &&
-      sanitizedInput.every((val, i) => val === result[i].toLowerCase());
-
-    if (allMatch) return "Everything looks good to me!";
-
-    return result.join(" ");
+  toBritish(input, isHighlighted = true) {
+    let out = input;
+    out = this.handleTime(out, ":", ".", isHighlighted);
+    out = this.replaceAll(out, this.americanOnly, isHighlighted);
+    out = this.replaceAll(out, this.americanSpelling, isHighlighted);
+    out = this.replaceAll(out, this.americanTitles, isHighlighted);
+    return out === input ? "Everything looks good to me!" : out;
   }
 
-  sanitize(dirtyInput) {
-    return dirtyInput.split(/\s+/);
-  }
-
-  capitalize(input) {
-    return `${input.slice(0, 1).toUpperCase()}${input.slice(1)}`;
+  toAmerican(input, isHighlighted = true) {
+    let out = input;
+    out = this.handleTime(out, ".", ":", isHighlighted);
+    out = this.replaceAll(out, this.britishOnly, isHighlighted);
+    out = this.replaceAll(out, this.britishToAmericanSpelling, isHighlighted);
+    out = this.replaceAll(out, this.britishToAmericanTitles, isHighlighted);
+    return out === input ? "Everything looks good to me!" : out;
   }
 }
 
