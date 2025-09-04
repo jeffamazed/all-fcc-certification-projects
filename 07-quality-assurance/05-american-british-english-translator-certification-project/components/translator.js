@@ -19,6 +19,10 @@ class Translator {
     );
   }
 
+  sanitize(dirtyInput) {
+    return dirtyInput.trim().split(/\s+/).join(" ");
+  }
+
   preserveCase(word, replacement) {
     if (word === word.toUpperCase()) return replacement.toUpperCase();
     if (word[0] === word[0].toUpperCase()) {
@@ -77,7 +81,7 @@ class Translator {
   }
 
   toBritish(input, isHighlighted = true) {
-    let out = input;
+    let out = this.sanitize(input);
     out = this.handleTime(out, ":", ".", isHighlighted);
     out = this.replaceAll(out, this.americanOnly, isHighlighted);
     out = this.replaceAll(out, this.americanSpelling, isHighlighted);
@@ -86,7 +90,7 @@ class Translator {
   }
 
   toAmerican(input, isHighlighted = true) {
-    let out = input;
+    let out = this.sanitize(input);
     out = this.handleTime(out, ".", ":", isHighlighted);
     out = this.replaceAll(out, this.britishOnly, isHighlighted);
     out = this.replaceAll(out, this.britishToAmericanSpelling, isHighlighted);
