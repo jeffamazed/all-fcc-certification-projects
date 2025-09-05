@@ -19,5 +19,5 @@ It translates text between American and British English, validates inputs, and h
 
 ## Credits
 
-This project is inspired by and part of the [freeCodeCamp Quality Assurance curriculum](https://www.freecodecamp.org/).  
+This project is inspired by and part of the [freeCodeCamp Quality Assurance curriculum](https://www.freecodecamp.org/learn/quality-assurance/).  
 Project structure and requirements provided by [freeCodeCamp](https://www.freecodecamp.org/).
