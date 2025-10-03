@@ -5,7 +5,7 @@ It analyzes a dataset containing medical records and visualizes key features and
 
 ## Features
 
-- Loads and processes the **medical dataset** (`medical_data.csv`)  
+- Loads and processes the **medical dataset** (`medical_examination.csv`)  
 - Performs **data cleaning** including:
   - Removing incorrect blood pressure measurements (`ap_lo > ap_hi`)  
   - Filtering out height and weight outliers (outside 2.5th–97.5th percentiles)  
